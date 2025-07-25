@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Your Company Name</title>
+  <title>LogicFuse</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -101,7 +101,7 @@
   <nav>
     <span class="logo">LogicFuse</span>
     <ul>
-      <li><a href="#features">Features</a></li>
+      <li><a href="#features">Services</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#about">About</a></li>
     </ul>
@@ -109,36 +109,42 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <h1>Elevate Your Business with <span style="color:var(--accent)">LogicFuse</span></h1>
+    <h1>Design Verification Completion with <span style="color:var(--accent)">LogicFuse</span></h1>
     <p>
-      Digital strategy, smart solutions, and professional web development tailored for success.
+      Complete, professional and fast design verification services for ASIC or FPGA design success.
     </p>
     <a href="#contact"><button class="cta-btn">Get Started</button></a>
   </section>
 
   <!-- Features Section -->
-  <section class="features" id="features">
+  <section class="services" id="features">
     <div class="feature-box" data-animate>
-      <h3>Seamless Mobile Experience</h3>
-      <p>Your website adapts beautifully across devices, ensuring a great first impression on every screen.</p>
+      <h3>Expert Design Verification</h3>
+      <p>
+        Expect expert verification of your digital designs to guarantee performance and compliance—catching errors before they become costly problems.
+      </p>
     </div>
     <div class="feature-box" data-animate>
-      <h3>Blazing Fast Performance</h3>
-      <p>Optimized assets and code for quick load times—critical for both users and search engines.</p>
+      <h3>Comprehensive Testing</h3>
+      <p>
+        Using industry-leading simulation and real-world testing, we uncover issues early, optimize efficiency, and ensure readiness for manufacturing or launch.
+      </p>
     </div>
     <div class="feature-box" data-animate>
-      <h3>Easy Custom Management</h3>
-      <p>Simple navigation and clear calls to action help your visitors convert and connect.</p>
+      <h3>Transparent Collaboration</h3>
+      <p>
+        Our clear reports and ongoing support keep you informed and empowered from project start to finish.
+      </p>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <h2>Contact Us</h2>
-    <form class="contact-form" autocomplete="off">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="4" placeholder="Your Message" required></textarea>
+    <form class="contact-form" action="https://formspree.io/f/your_form_id" method="POST" autocomplete="off">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
       <div id="form-status"></div>
     </form>
