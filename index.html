@@ -1,336 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LogicFuse Consulting: Expertise in SystemVerilog, UVM, and design verification for 100% functional and code coverage closure.">
-    <title>LogicFuse Consulting Inc.</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Header Section */
-        header {
-            background: linear-gradient(to right, #2c3e50, #34495e);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        }
-        header h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        header p {
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin-top: 0;
-        }
-
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #34495e;
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        nav a {
-            color: white;
-            margin: 0 2rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #3498db;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        nav a:hover {
-            color: #3498db;
-            transform: translateY(-3px);
-        }
-        nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to bottom right, #6c7b8b, #bdc3c7);
-            padding: 5rem 2rem;
-            text-align: center;
-            color: #34495e;
-        }
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 1000px;
-            margin: auto;
-            font-weight: 400;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        .services h3 {
-            font-size: 2.8rem;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-        .services ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            list-style: none;
-            padding: 0;
-        }
-        .services li {
-            background: #ecf0f1;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .services li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .services img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-        .services li:hover img {
-            transform: rotate(360deg);
-        }
-
-        /* About Section */
-        .about {
-            display: flex;
-            justify-content: space-between;
-            padding: 5rem 2rem;
-            background: #fff;
-            margin-top: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .about img {
-            width: 45%;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .about div {
-            width: 50%;
-            padding-left: 2rem;
-        }
-        .about h3 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            font-weight: 700;
-        }
-        .about:hover {
-            transform: translateY(-10px);
-        }
-        .about img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
-            background: #f9f9f9;
-            text-align: center;
-            position: relative;
-        }
-        .contact h3 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            font-weight: 700;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 650px;
-            margin: 2rem auto;
-            text-align: left;
-        }
-        .contact-form label {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: border 0.3s ease, box-shadow 0.3s ease;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #3498db;
-            box-shadow: inset 0 4px 8px rgba(52, 152, 219, 0.3);
-        }
-        .contact-form button {
-            padding: 1rem 2rem;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .contact-form button:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #34495e;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            font-size: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .about {
-                flex-direction: column;
-                align-items: center;
-            }
-            .about img {
-                width: 80%;
-                margin-bottom: 2rem;
-            }
-            .about div {
-                width: 100%;
-                padding-left: 0;
-            }
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .services h3, .contact h3 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Your Company Name</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0066ff;
+      --primary-dark: #0044aa;
+      --accent: #31cc8c;
+      --background: #f7fafd;
+      --text: #1a2236;
+      --gray: #e3e7ef;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background: var(--background);
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 2rem; background: #fff; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 8px rgba(30,40,60,0.04);
+    }
+    nav .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
+    nav ul { margin: 0; padding: 0; display: flex; gap: 2rem; list-style: none; }
+    nav ul li a {
+      text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.2s;
+    }
+    nav ul li a:hover { color: var(--primary); }
+    .hero {
+      padding: 4rem 2rem; text-align: center;
+      background: linear-gradient(85deg, var(--primary) 70%, var(--accent) 100%);
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.1;
+    }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; font-weight: 400; }
+    .cta-btn {
+      background: var(--accent); color: #fff; font-weight: 700; font-size: 1rem;
+      padding: 1rem 2rem; border-radius: 2rem; border: none; cursor: pointer; transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(30,40,60,0.18);
+    }
+    .cta-btn:hover { background: #1bbc7e; }
+    .features {
+      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; background: #fff;
+      padding: 4rem 2rem;
+    }
+    .feature-box {
+      background: var(--gray); border-radius: 1rem; padding: 2rem 1.5rem; width: 300px;
+      text-align: left; box-shadow: 0 1px 4px rgba(30,40,60,0.10); margin-bottom: 1rem;
+      transition: transform 0.2s;
+    }
+    .feature-box:hover { transform: translateY(-4px) scale(1.02); }
+    .feature-box h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; color: var(--primary-dark); }
+    .feature-box p { margin: 0; font-size: 1rem; color: var(--text); }
+    .contact-section {
+      background: var(--background); padding: 3rem 2rem; text-align: center;
+    }
+    .contact-section h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .contact-form {
+      margin: 0 auto; max-width: 400px; padding: 2rem; background: #fff; border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(30,40,60,0.03);
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      font-size: 1rem; padding: 0.75rem; border-radius: 0.5rem;
+      border: 1px solid var(--gray); background: var(--background); color: var(--text);
+      resize: vertical; outline: none; transition: border 0.18s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border: 1.5px solid var(--primary);
+    }
+    .contact-form button {
+      background: var(--primary); color: #fff; font-size: 1rem;
+      border: none; border-radius: 1.5rem; padding: 0.75rem 1.5rem;
+      font-weight: bold; cursor: pointer; transition: background 0.16s;
+    }
+    .contact-form button:hover { background: var(--primary-dark); }
+    footer {
+      background: var(--primary-dark); color: #fff; text-align: center;
+      padding: 1.5rem 2rem; font-size: 0.98rem; margin-top: 4rem;
+    }
+    @media (max-width: 860px) {
+      .features { flex-direction: column; align-items: center; }
+      .feature-box { width: 98%; }
+      .hero { padding: 3rem 1rem; }
+    }
+    /* Animated Scroll-in */
+    [data-animate] { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+    [data-animate].animated { opacity: 1; transform: none; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>LogicFuse Consulting Inc.</h1>
-        <p>Your trusted partner in Advanced Design Verification Consulting</p>
-    </header>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <section class="hero">
-        <h2>Leading Expertise in Design Verification</h2>
-        <p>At LogicFuse Consulting Inc., we empower high-tech ASIC and FPGA companies to achieve excellence in design verification. Specializing in SystemVerilog, UVM, and advanced methodologies, we ensure 100% functional and code coverage closure for IPs, subsystem designs, and complete SoCs.</p>
-    </section>
-    <section id="services" class="services">
-        <h3>Our Services</h3>
-        <ul>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="Design Verification">
-                Comprehensive Design Verification for SoCs, subsystems, and IPs
-            </li>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="SystemVerilog">
-                Expertise in SystemVerilog and UVM methodologies
-            </li>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="Coverage">
-                100% Functional and Code Coverage Closure
-            </li>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="Testbench">
-                Efficient Testbench Development and Debugging
-            </li>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="FPGA">
-                Advanced FPGA Prototyping and Validation
-            </li>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="Consulting">
-                Verification Strategy Consulting and Team Training
-            </li>
-        </ul>
-    </section>
-    <section id="about" class="about">
-        <img src="https://via.placeholder.com/400" alt="About LogicFuse">
-        <div>
-            <h3>About Us</h3>
-            <p>LogicFuse Consulting Inc. has been at the forefront of design verification innovation for over a decade. Our mission is to deliver tailored solutions that meet the rigorous demands of ASIC and FPGA projects. With a deep understanding of verification tools and techniques, we ensure that your designs are robust, bug-free, and ready for production. Partner with us to accelerate your design cycles and achieve unparalleled quality assurance.</p>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <h3>Contact Us</h3>
-        <p>Ready to transform your design verification process? Contact us today to discuss your specific needs and challenges.</p>
-        <form class="contact-form" action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+  <!-- Header Navigation -->
+  <nav>
+    <span class="logo">LogicFuse</span>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Elevate Your Business with <span style="color:var(--accent)">LogicFuse</span></h1>
+    <p>
+      Digital strategy, smart solutions, and professional web development tailored for success.
+    </p>
+    <a href="#contact"><button class="cta-btn">Get Started</button></a>
+  </section>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature-box" data-animate>
+      <h3>Seamless Mobile Experience</h3>
+      <p>Your website adapts beautifully across devices, ensuring a great first impression on every screen.</p>
+    </div>
+    <div class="feature-box" data-animate>
+      <h3>Blazing Fast Performance</h3>
+      <p>Optimized assets and code for quick load times—critical for both users and search engines.</p>
+    </div>
+    <div class="feature-box" data-animate>
+      <h3>Easy Custom Management</h3>
+      <p>Simple navigation and clear calls to action help your visitors convert and connect.</p>
+    </div>
+  </section>
 
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-    <footer class="footer">
-        <p>&copy; 2025 LogicFuse Consulting Inc. All rights reserved.</p>
-    </footer>
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" autocomplete="off">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <div id="form-status"></div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 LogicFuse. All rights reserved. | Designed with expertise for Delta, BC businesses.
+  </footer>
+
+  <!-- JavaScript for Animations & Lightweight Interactivity -->
+  <script>
+    // Animate on Scroll
+    function animateOnScroll() {
+      document.querySelectorAll('[data-animate]').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 70) {
+          el.classList.add('animated');
+        }
+      });
+    }
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('DOMContentLoaded', animateOnScroll);
+
+    // Simple Contact Form Submission
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('form-status').textContent = "Thank you! We'll be in touch.";
+      this.reset();
+    });
+  </script>
 </body>
 </html>
