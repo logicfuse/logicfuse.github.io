@@ -1,258 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Logicfuse Consulting</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #0066ff;
-      --primary-dark: #0044aa;
-      --accent: #31cc8c;
-      --background: #f7fafd;
-      --text: #1a2236;
-      --gray: #e3e7ef;
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0; padding: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      color: var(--text);
-      background: var(--background);
-    }
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 2rem; background: #fff; position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 8px rgba(30,40,60,0.04);
-    }
-    nav .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
-    nav ul { margin: 0; padding: 0; display: flex; gap: 2rem; list-style: none; }
-    nav ul li a {
-      text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.2s;
-    }
-    nav ul li a:hover { color: var(--primary); }
-    .hero {
-      padding: 4rem 2rem; text-align: center;
-      background: linear-gradient(85deg, var(--primary) 70%, var(--accent) 100%);
-      color: #fff;
-    }
-    .hero h1 {
-      font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.1;
-    }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; font-weight: 400; }
-        .hero .tagline { font-size: 1.25rem; margin-bottom: 0.75rem; font-weight: 500; opacity: 0.95; }
-    .cta-btn {
-      background: var(--accent); color: #fff; font-weight: 700; font-size: 1rem;
-      padding: 1rem 2rem; border-radius: 2rem; border: none; cursor: pointer; transition: background 0.2s;
-      box-shadow: 0 2px 8px rgba(30,40,60,0.18);
-    }
-    .cta-btn:hover { background: #1bbc7e; }
-        .about-section { background: #fff; padding: 4rem 2rem; text-align: center; }
-    .about-section h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary-dark); }
-    .about-text { max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.7; }
-    .expertise-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
-    .expertise-item { background: var(--light-gray); padding: 1.5rem; border-radius: 0.75rem; flex: 1; min-width: 250px; max-width: 300px; }
-    .expertise-item h4 { color: var(--primary); margin-bottom: 0.75rem; font-size: 1.1rem; }
-    .expertise-item p { font-size: 0.95rem; line-height: 1.6; }
-        .talent-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
-    .talent-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .talent-intro { max-width: 800px; margin: 0 auto 3rem; font-size: 1.15rem; line-height: 1.7; }
-    .talent-benefits { display: flex; gap: 3rem; justify-content: center; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; text-align: left; }
-    .benefit-col { flex: 1; min-width: 350px; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem; }
-    .benefit-col h3 { font-size: 1.4rem; margin-bottom: 1rem; }
-    .benefit-col ul { list-style: none; padding: 0; }
-    .benefit-col li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
-    .benefit-col li:before { content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-    .features {
-      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; background: #fff;
-      padding: 4rem 2rem;
-    }
-    .feature-box {
-      background: var(--gray); border-radius: 1rem; padding: 2rem 1.5rem; width: 300px;
-      text-align: left; box-shadow: 0 1px 4px rgba(30,40,60,0.10); margin-bottom: 1rem;
-      transition: transform 0.2s;
-    }
-    .feature-box:hover { transform: translateY(-4px) scale(1.02); }
-    .feature-box h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; color: var(--primary-dark); }
-    .feature-box p { margin: 0; font-size: 1rem; color: var(--text); }
-    .contact-section {
-      background: var(--background); padding: 3rem 2rem; text-align: center;
-    }
-    .contact-section h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .contact-form {
-      margin: 0 auto; max-width: 400px; padding: 2rem; background: #fff; border-radius: 1rem;
-      box-shadow: 0 2px 8px rgba(30,40,60,0.03);
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .contact-form input, .contact-form textarea {
-      font-size: 1rem; padding: 0.75rem; border-radius: 0.5rem;
-      border: 1px solid var(--gray); background: var(--background); color: var(--text);
-      resize: vertical; outline: none; transition: border 0.18s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border: 1.5px solid var(--primary);
-    }
-    .contact-form button {
-      background: var(--primary); color: #fff; font-size: 1rem;
-      border: none; border-radius: 1.5rem; padding: 0.75rem 1.5rem;
-      font-weight: bold; cursor: pointer; transition: background 0.16s;
-    }
-    .contact-form button:hover { background: var(--primary-dark); }
-    footer {
-      background: var(--primary-dark); color: #fff; text-align: center;
-      padding: 1.5rem 2rem; font-size: 0.98rem; margin-top: 4rem;
-    }
-    @media (max-width: 860px) {
-      .features { flex-direction: column; align-items: center; }
-      .feature-box { width: 98%; }
-      .hero { padding: 3rem 1rem; }
-    }
-    /* Animated Scroll-in */
-    [data-animate] { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
-    [data-animate].animated { opacity: 1; transform: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogicFuse Consulting - DV Engineering & Contractor Staffing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #1e3a5f;
+            --color-secondary: #2d5a8c;
+            --color-accent: #32baf5;
+            --color-accent-dark: #2196c7;
+            --color-text-dark: #0f172a;
+            --color-text-light: #f1f5f9;
+            --color-text-muted: #94a3b8;
+            --color-bg-light: #f8fafc;
+            --color-surface: #ffffff;
+            --color-border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text-dark);
+            background-color: var(--color-bg-light);
+        }
+
+        /* Navigation */
+        header {
+            background: var(--color-surface);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '⚡';
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .cta-button {
+            background: var(--color-accent);
+            color: var(--color-text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--color-accent-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
+            color: var(--color-text-light);
+            padding: 6rem 2rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-text-light);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(50, 186, 245, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text-light);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--color-accent);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .service-card-hero {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card-hero h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-card-hero p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-box {
+            background: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .service-box:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 8px 24px rgba(50, 186, 245, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-box h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Why Choose LogicFuse */
+        .why-logicfuse {
+            background: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .why-logicfuse .section-header h2 {
+            color: var(--color-text-light);
+        }
+
+        .why-logicfuse .section-header p {
+            color: #cbd5e1;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        /* Process Section */
+        .process {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--color-accent);
+            color: var(--color-text-light);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h4 {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a5f 0%, #32baf5 100%);
+            color: var(--color-text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header Navigation -->
-  <nav>
-    <span class="logo">LogicFuse</span>
-    <ul>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#contact">Contact</a></li>
-            <li><a href="#careers">Careers</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">LogicFuse</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button">Get Started</button>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h1>ASIC/FPGA Design Verification Excellence <span style="color:var(--accent)">for Silicon Success</span></h1>    <p>
-    <p class="tagline">Expert SystemVerilog/UVM verification services from tapeout to production.</p>    </p>
-    <a href="#contact"><button class="cta-btn">Get Started</button></a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Expert Design Verification Engineering & DV Staffing Solutions</h1>
+                <p>Leverage our deep ASIC/FPGA expertise to deliver verified designs faster and build high-performing verification teams.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#contact" class="btn-secondary">Schedule Consultation</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="service-card-hero">
+                    <h3>🔬 Digital Verification Consulting</h3>
+                    <p>Direct DV engineering for your projects. Risk-free tapeout with proven methodologies.</p>
+                </div>
+                <div class="service-card-hero">
+                    <h3>👥 Contractor Staffing</h3>
+                    <p>Pre-vetted DV talent ready to deploy. Scale your teams without the recruitment burden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <!-- About/Expertise Section -->
-  <section class="about-section" id="about">
-    <h2>Verification Excellence for the Semiconductor Industry</h2>
-    <p class="about-text">LogicFuse delivers expert ASIC/FPGA design verification services powered by decades of combined experience in SystemVerilog, UVM, and formal verification. Based in British Columbia, Canada, we provide North American quality with deep technical expertise in complex digital designs.</p>
-    <div class="expertise-grid">
-      <div class="expertise-item">
-        <h4>Core Methodologies</h4>
-        <p>SystemVerilog • UVM • Formal Verification • Coverage-Driven • Constrained Random</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Tools & Platforms</h4>
-        <p>Synopsys VCS • Cadence • Mentor Graphics • Questa • Verdi</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Domain Expertise</h4>
-        <p>Networking • AI/ML Accelerators • Consumer Electronics • Automotive</p>
-      </div>
-    </div>
-  </section>
-  </section>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Two complementary services to meet your verification and staffing needs</p>
+        </div>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="feature-box" data-animate>
-      <h3>Expert Design Verification</h3>
-        <p>SystemVerilog/UVM testbenches, protocol verification, functional and code coverage analysis. We catch functional bugs, timing issues, and protocol violations before they reach silicon.</p>    </div>
-    <div class="feature-box" data-animate>
-      <h3>Comprehensive Testing</h3>
-      <p>Use industry-leading simulation and real-world testing, we uncover issues early, optimize efficiency, and ensure readiness for manufacturing or launch.</p>
-    </div>
-    <div class="feature-box" data-animate>
-      <h3>Transparent Collaboration</h3>
-      <p>Our clear status and coverage reports with ongoing support keep you informed and empowered from start to finish.</p>
-    </div>
-  </section>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-box">
+                <div class="service-icon">🔧</div>
+                <h3>Digital Verification Consulting</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Complete DV engineering from specification through sign-off for your ASIC and FPGA projects.</p>
+                <ul class="service-features">
+                    <li>SystemVerilog/UVM testbench development</li>
+                    <li>Coverage-driven verification (CDV)</li>
+                    <li>Formal verification & property checking</li>
+                    <li>Protocol verification (PCIe, DDR, USB, etc.)</li>
+                    <li>Tapeout-ready quality assurance</li>
+                    <li>Detailed coverage and status reports</li>
+                </ul>
+                <p style="color: var(--color-accent); font-weight: 600; margin-top: 1rem;">✓ Ready for your next project</p>
+            </div>
 
-    <!-- Talent Network Section -->
-  <section class="talent-section" id="careers">
-    <h2>Join Our Elite Verification Network</h2>
-    <p class="talent-intro">LogicFuse is building a curated network of top-tier ASIC/FPGA verification engineers. We connect exceptional talent with industry-leading semiconductor projects across North America.</p>
-    <div class="talent-benefits">
-      <div class="benefit-col">
-        <h3>What We Offer</h3>
-        <ul>
-          <li>Premium contract opportunities with Fortune 500 semiconductor companies</li>
-          <li>Competitive rates reflecting your expertise</li>
-          <li>Flexible engagement models (short-term to long-term)</li>
-          <li>Diverse technical challenges across multiple domains</li>
-          <li>Direct client collaboration and visibility</li>
-        </ul>
-      </div>
-      <div class="benefit-col">
-        <h3>We're Seeking</h3>
-        <ul>
-          <li>Senior/Staff Design Verification Engineers</li>
-          <li>UVM/SystemVerilog experts</li>
-          <li>Formal verification specialists</li>
-          <li>Verification architects and leads</li>
-        </ul>
-        <h3 style="margin-top:1.5rem">Requirements</h3>
-        <ul>
-          <li>5+ years in ASIC/FPGA verification</li>
-          <li>Expert-level SystemVerilog/UVM</li>
-          <li>Proven track record of successful tapeouts</li>
-        </ul>
-      </div>
-    </div>
-    <a href="#contact"><button class="cta-btn" style="margin-top:2rem">Join Our Network</button></a>
-  </section>
+            <!-- Service 2 -->
+            <div class="service-box">
+                <div class="service-icon">👨‍💼</div>
+                <h3>DV Contractor Staffing & Team Building</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Rapidly deploy experienced DV engineers and build specialized verification teams for vendors and growing programs.</p>
+                <ul class="service-features">
+                    <li>Pre-vetted contractor placement</li>
+                    <li>Team composition & building</li>
+                    <li>Contractor recruitment & screening</li>
+                    <li>Fast turnaround (5 business days)</li>
+                    <li>Referral fees 10-15%</li>
+                    <li>60-day placement warranty</li>
+                </ul>
+                <p style="color: var(--color-accent); font-weight: 600; margin-top: 1rem;">✓ For verification service vendors</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="contact-section" id="contact">
-    <h2>Contact Us</h2>
-    <form class="contact-form" action="https://formspree.io/f/xnnzdbpk" method="POST" autocomplete="off">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-      <div id="form-status"></div>
-    </form>
-  </section>
+    <!-- Why Choose LogicFuse -->
+    <section class="why-logicfuse" id="why">
+        <div class="section-header">
+            <h2>Why Choose LogicFuse</h2>
+            <p>A decade of semiconductor verification expertise in your corner</p>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 LogicFuse. All rights reserved. | Designed with expertise for BC businesses.
-  </footer>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h4>Deep Technical Expertise</h4>
+                <p>10+ years in ASIC/FPGA verification with SystemVerilog, UVM, and formal methods</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h4>Tapeout-Ready Quality</h4>
+                <p>Every project receives coverage analysis, corner case testing, and sign-off confidence</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h4>Fast Deployment</h4>
+                <p>Contractors available within 5 business days. Consulting teams ready to start immediately</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤝</div>
+                <h4>Trusted Network</h4>
+                <p>Extensive contractor pool and vendor relationships across semiconductor industry</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💼</div>
+                <h4>Professional Communication</h4>
+                <p>Clear status reports, regular updates, and transparent project management</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h4>Risk Mitigation</h4>
+                <p>Verified methodologies reduce bugs, accelerate schedules, ensure compliance</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript for Animations & Lightweight Interactivity -->
-  <script>
-    // Animate on Scroll
-    function animateOnScroll() {
-      document.querySelectorAll('[data-animate]').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 70) {
-          el.classList.add('animated');
-        }
-      });
-    }
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('DOMContentLoaded', animateOnScroll);
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <h2>Our Process</h2>
+            <p>Streamlined approach for consistent results</p>
+        </div>
 
-    // Simple Contact Form Submission
-    document.querySelector('.contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const status = document.getElementById('form-status');
-    const data = new FormData(this);
-    try {
-      const res = await fetch(this.action, {
-        method: this.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        status.textContent = "Thank you! Your message has been sent.";
-        this.reset();
-      } else {
-        const result = await res.json();
-        status.textContent = result.error || "Oops! There was an error.";
-      }
-    } catch (err) {
-      status.textContent = "Network error. Please try again later!";
-    }
-  });
-  </script>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Understand Needs</h4>
+                <p>Discovery call to understand project scope, constraints, and timeline</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Create Plan</h4>
+                <p>Develop DV strategy, resource plan, and coverage targets aligned with your goals</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Execute</h4>
+                <p>Deploy team and execute verification with weekly status reports and regular communication</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Sign-Off</h4>
+                <p>Deliver comprehensive coverage reports, evidence of verification completeness, and sign-off confidence</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Accelerate Your Verification?</h2>
+        <p>Whether you need direct DV engineering or to rapidly scale your verification team, let's talk about how LogicFuse can help.</p>
+        <button class="btn-primary">Schedule a Free Consultation</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">DV Consulting</a></li>
+                    <li><a href="#">Contractor Staffing</a></li>
+                    <li><a href="#">Team Building</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="mailto:info@logicfuse.com">info@logicfuse.com</a></li>
+                    <li><a href="tel:+1234567890">+1 (236) XXX-XXXX</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LogicFuse Consulting Inc. All rights reserved. | <a href="#" style="color: #cbd5e1;">Privacy Policy</a></p>
+        </div>
+    </footer>
 </body>
 </html>
