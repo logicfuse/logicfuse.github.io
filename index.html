@@ -366,26 +366,173 @@
             font-size: 0.9rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #1e3a5f 0%, #32baf5 100%);
+        /* Contact Section */
+        .contact-section {
+            background: var(--color-bg-light);
+            padding: 4rem 2rem;
+            margin: 4rem 0 0 0;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.875rem;
+            font-size: 0.95rem;
+            border: 2px solid var(--color-border);
+            border-radius: 6px;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--color-surface);
+            color: var(--color-text-dark);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(50, 186, 245, 0.1);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        #form-status {
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 500;
+            min-height: 24px;
+        }
+
+        #form-status.success {
+            color: var(--color-accent);
+        }
+
+        #form-status.error {
+            color: #e74c3c;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .contact-info h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info p {
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-info a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-accent-dark);
+        }
+
+        /* Contractor Signup Section */
+        .contractor-signup-section {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
             color: var(--color-text-light);
             padding: 4rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
+            margin: 0;
         }
 
-        .cta-section h2 {
-            font-size: 2rem;
+        .signup-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .signup-content h2 {
+            font-size: 2.25rem;
             margin-bottom: 1rem;
+            color: var(--color-text-light);
         }
 
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .signup-content p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .signup-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: #f1f5f9;
+        }
+
+        .benefit-icon {
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .signup-highlight {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .signup-highlight ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .signup-highlight ul li {
+            margin-bottom: 0.75rem;
+            color: #cbd5e1;
         }
 
         /* Footer */
@@ -457,6 +604,27 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
+
+            .signup-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .signup-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .signup-highlight {
+                padding: 1.5rem;
+            }
+
+            .contact-section {
+                padding: 2rem 1rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -471,7 +639,7 @@
                 <li><a href="#process">Process</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="cta-button">Get Started</button>
+            <a href="https://forms.gle/dqEXuyCJRMpZ45Qr5" target="_blank" class="cta-button">Join Network</a>
         </nav>
     </header>
 
@@ -483,7 +651,7 @@
                 <p>Leverage our deep ASIC/FPGA expertise to deliver verified designs faster and build high-performing verification teams.</p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn-primary">Explore Services</a>
-                    <a href="#contact" class="btn-secondary">Schedule Consultation</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -613,11 +781,78 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <h2>Ready to Accelerate Your Verification?</h2>
-        <p>Whether you need direct DV engineering or to rapidly scale your verification team, let's talk about how LogicFuse can help.</p>
-        <button class="btn-primary">Schedule a Free Consultation</button>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind or looking to place DV talent? We'd love to hear from you.</p>
+            </div>
+            
+            <form class="contact-form" action="https://formspree.io/f/xnnzdbpk" method="POST" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required />
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Tell us about your needs..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+                <div id="form-status"></div>
+            </form>
+            
+            <div class="contact-info">
+                <h3>Or reach out directly:</h3>
+                <p><strong>Email:</strong> <a href="mailto:logicfuseinc@gmail.com">logicfuseinc@gmail.com</a></p>
+                <p><strong>Location:</strong> BC, Canada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contractor Signup CTA -->
+    <section class="contractor-signup-section">
+        <div class="signup-container">
+            <div class="signup-content">
+                <h2>Join Our DV Engineer Network</h2>
+                <p>Are you an experienced Design Verification engineer looking for exciting contract opportunities?</p>
+                <p>LogicFuse connects top DV talent with leading semiconductor companies. Remote-friendly roles, competitive rates, and interesting projects.</p>
+                
+                <div class="signup-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span>Pre-vetted opportunities with top vendors</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span>Remote and flexible work options</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span>Competitive rates ($100-150/hr range)</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span>Direct access to our network</span>
+                    </div>
+                </div>
+                
+                <a href="https://forms.gle/dqEXuyCJRMpZ45Qr5" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 1.5rem;">Join Our Network</a>
+                <p style="font-size: 0.9rem; color: #cbd5e1; margin-top: 1rem;">Takes ~5 minutes to complete. We'll review your profile and be in touch with matching opportunities.</p>
+            </div>
+            
+            <div class="signup-highlight">
+                <p style="font-size: 1.1rem; font-weight: 600; color: var(--color-accent); margin-bottom: 1rem;">Why Join?</p>
+                <ul>
+                    <li>🚀 Access to projects at Fidus, BTA, Triple Crown, and other leading vendors</li>
+                    <li>💰 High-paying contract roles (SystemVerilog, UVM, Formal Verification)</li>
+                    <li>🌍 100% remote options available</li>
+                    <li>📈 Career growth with industry leaders</li>
+                    <li>🤝 Personalized support from DV experts</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -626,9 +861,9 @@
             <div class="footer-section">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#">DV Consulting</a></li>
-                    <li><a href="#">Contractor Staffing</a></li>
-                    <li><a href="#">Team Building</a></li>
+                    <li><a href="#services">DV Consulting</a></li>
+                    <li><a href="#services">Contractor Staffing</a></li>
+                    <li><a href="#services">Team Building</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -642,8 +877,8 @@
             <div class="footer-section">
                 <h4>Get in Touch</h4>
                 <ul>
-                    <li><a href="mailto:info@logicfuse.com">info@logicfuse.com</a></li>
-                    <li><a href="tel:+1234567890">+1 (236) XXX-XXXX</a></li>
+                    <li><a href="mailto:logicfuseinc@gmail.com">info@logicfuseinc@gmail.com</a></li>
+                    <li><a href="https://forms.gle/dqEXuyCJRMpZ45Qr5" target="_blank">Join as Contractor</a></li>
                     <li><a href="#">LinkedIn</a></li>
                 </ul>
             </div>
@@ -652,5 +887,42 @@
             <p>&copy; 2026 LogicFuse Consulting Inc. All rights reserved. | <a href="#" style="color: #cbd5e1;">Privacy Policy</a></p>
         </div>
     </footer>
+
+    <script>
+        // Handle Formspree form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            const statusDiv = document.getElementById('form-status');
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            // Show loading state
+            button.disabled = true;
+            button.textContent = 'Sending...';
+            statusDiv.textContent = '';
+            statusDiv.className = '';
+        });
+
+        // Listen for form submission success/error
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://formspree.io') return;
+            
+            const statusDiv = document.getElementById('form-status');
+            const button = document.querySelector('.contact-form button[type="submit"]');
+            const form = document.querySelector('.contact-form');
+            
+            if (event.data.success) {
+                statusDiv.textContent = '✓ Message sent successfully! We\'ll get back to you soon.';
+                statusDiv.className = 'success';
+                form.reset();
+                button.disabled = false;
+                button.textContent = 'Send Another Message';
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    button.textContent = 'Send Message';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
