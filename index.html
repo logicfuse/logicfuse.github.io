@@ -41,12 +41,29 @@
       font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.1;
     }
     .hero p { font-size: 1.2rem; margin-bottom: 2rem; font-weight: 400; }
+        .hero .tagline { font-size: 1.25rem; margin-bottom: 0.75rem; font-weight: 500; opacity: 0.95; }
     .cta-btn {
       background: var(--accent); color: #fff; font-weight: 700; font-size: 1rem;
       padding: 1rem 2rem; border-radius: 2rem; border: none; cursor: pointer; transition: background 0.2s;
       box-shadow: 0 2px 8px rgba(30,40,60,0.18);
     }
     .cta-btn:hover { background: #1bbc7e; }
+        .about-section { background: #fff; padding: 4rem 2rem; text-align: center; }
+    .about-section h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary-dark); }
+    .about-text { max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.7; }
+    .expertise-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+    .expertise-item { background: var(--light-gray); padding: 1.5rem; border-radius: 0.75rem; flex: 1; min-width: 250px; max-width: 300px; }
+    .expertise-item h4 { color: var(--primary); margin-bottom: 0.75rem; font-size: 1.1rem; }
+    .expertise-item p { font-size: 0.95rem; line-height: 1.6; }
+        .talent-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
+    .talent-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .talent-intro { max-width: 800px; margin: 0 auto 3rem; font-size: 1.15rem; line-height: 1.7; }
+    .talent-benefits { display: flex; gap: 3rem; justify-content: center; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; text-align: left; }
+    .benefit-col { flex: 1; min-width: 350px; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem; }
+    .benefit-col h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .benefit-col ul { list-style: none; padding: 0; }
+    .benefit-col li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+    .benefit-col li:before { content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
     .features {
       display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; background: #fff;
       padding: 4rem 2rem;
@@ -103,25 +120,43 @@
     <ul>
       <li><a href="#features">Features</a></li>
       <li><a href="#contact">Contact</a></li>
+            <li><a href="#careers">Careers</a></li>
       <li><a href="#about">About</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <h1>Elevate Your Business with <span style="color:var(--accent)">LogicFuse</span></h1>
-    <p>
-      Complete professional digital verification from start to finish tailored for tapeout success.
-    </p>
+    <h1>ASIC/FPGA Design Verification Excellence <span style="color:var(--accent)">for Silicon Success</span></h1>    <p>
+    <p class="tagline">Expert SystemVerilog/UVM verification services from tapeout to production.</p>    </p>
     <a href="#contact"><button class="cta-btn">Get Started</button></a>
+
+      <!-- About/Expertise Section -->
+  <section class="about-section" id="about">
+    <h2>Verification Excellence for the Semiconductor Industry</h2>
+    <p class="about-text">LogicFuse delivers expert ASIC/FPGA design verification services powered by decades of combined experience in SystemVerilog, UVM, and formal verification. Based in British Columbia, Canada, we provide North American quality with deep technical expertise in complex digital designs.</p>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <h4>Core Methodologies</h4>
+        <p>SystemVerilog • UVM • Formal Verification • Coverage-Driven • Constrained Random</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Tools & Platforms</h4>
+        <p>Synopsys VCS • Cadence • Mentor Graphics • Questa • Verdi</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Domain Expertise</h4>
+        <p>Networking • AI/ML Accelerators • Consumer Electronics • Automotive</p>
+      </div>
+    </div>
+  </section>
   </section>
 
   <!-- Features Section -->
   <section class="features" id="features">
     <div class="feature-box" data-animate>
       <h3>Expert Design Verification</h3>
-      <p>Expert verification of your digital designs to guarantee performance and compliance—catching errors before they become costly problems.</p>
-    </div>
+        <p>SystemVerilog/UVM testbenches, protocol verification, functional and code coverage analysis. We catch functional bugs, timing issues, and protocol violations before they reach silicon.</p>    </div>
     <div class="feature-box" data-animate>
       <h3>Comprehensive Testing</h3>
       <p>Use industry-leading simulation and real-world testing, we uncover issues early, optimize efficiency, and ensure readiness for manufacturing or launch.</p>
@@ -130,6 +165,40 @@
       <h3>Transparent Collaboration</h3>
       <p>Our clear status and coverage reports with ongoing support keep you informed and empowered from start to finish.</p>
     </div>
+  </section>
+
+    <!-- Talent Network Section -->
+  <section class="talent-section" id="careers">
+    <h2>Join Our Elite Verification Network</h2>
+    <p class="talent-intro">LogicFuse is building a curated network of top-tier ASIC/FPGA verification engineers. We connect exceptional talent with industry-leading semiconductor projects across North America.</p>
+    <div class="talent-benefits">
+      <div class="benefit-col">
+        <h3>What We Offer</h3>
+        <ul>
+          <li>Premium contract opportunities with Fortune 500 semiconductor companies</li>
+          <li>Competitive rates reflecting your expertise</li>
+          <li>Flexible engagement models (short-term to long-term)</li>
+          <li>Diverse technical challenges across multiple domains</li>
+          <li>Direct client collaboration and visibility</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <h3>We're Seeking</h3>
+        <ul>
+          <li>Senior/Staff Design Verification Engineers</li>
+          <li>UVM/SystemVerilog experts</li>
+          <li>Formal verification specialists</li>
+          <li>Verification architects and leads</li>
+        </ul>
+        <h3 style="margin-top:1.5rem">Requirements</h3>
+        <ul>
+          <li>5+ years in ASIC/FPGA verification</li>
+          <li>Expert-level SystemVerilog/UVM</li>
+          <li>Proven track record of successful tapeouts</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#contact"><button class="cta-btn" style="margin-top:2rem">Join Our Network</button></a>
   </section>
 
   <!-- Contact Section -->
